@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midias em HTML5</title>
+</head>
+<body>
+    <h1>Imagem dinâmica</h1>
+    <p></p>Tente abrir esses site em diversos dispositivos.</p>
+
+    <picture>
+        <source media="(max-width: 750px)" srcset="imagens/foto-p.png" type="image/png">
+        <source media="(max-width: 1050px)" srcset="imagens/foto-m.png" type="image/png">
+        <img src="imagens/foto-g.png" alt="Imagem flexível">
+    </picture>
+
+    <h1>Reproduzindo Áudio</h1>
+    <p>Vamos aprender a reproduzir áudio no HTML5</p>
+    <audio preload="auto" autoplay controls>  
+        <source src="midia/Baba_Yetu.mp3" type="audio/mpeg">
+        <!-- Os SOURCE's execultam em ordem...
+        <source src="midia/Baba_Yetu.ogg" type="audio/ogg">
+        <source src="midia/Baba_Yetu.wav" type="audio/wav">
+        Caso não tenha execultado nenhum...--> 
+        <p>Seu navegador não consegue reproduzir áudio</p>
+    </audio>
+    
+    
+    <!-- 
+    <audio src="midia/Baba_Yetu.mp3" controls autoplay ></audio>
+    -->
+
+</body>
+</html>
