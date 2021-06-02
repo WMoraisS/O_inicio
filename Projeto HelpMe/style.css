@@ -1,13 +1,44 @@
 @charset "UTF-8";
 
 body {
-    font-size: 18px;
-    color: darkblue
+    background-color: rgba(42, 42, 51, 0.877);
+
+}
+
+h1.titulo {
+    font-size: 28px;
+    color: lightgray;
+    padding-left: 150px;
 
 }
 
 div.busca {
-    padding: 10px;
-    color: darkgoldenrod;
+    background-color: rgb(247, 180, 55);
+    padding: 50px;
+    text-align: center;
 }
 
+input#ncm {
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 40%;
+    padding-inline-start: 30px;
+    
+}
+
+input#btn {
+    height: 50px;
+    width: 10ex;
+    font-size: 22px;
+}
+
+div {
+    color: white;
+    font-size: 20pt;
+}
+
+iframe#TIPI {
+    height: 500px;
+    width: 100%;
+}
