@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body {
+    font-size: 18px;
+    color: darkblue
+
+}
+
+div.busca {
+    padding: 10px;
+    color: darkgoldenrod;
+}
+
