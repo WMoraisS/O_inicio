@@ -6,7 +6,7 @@ body {
 }
 
 h1.titulo {
-    font-size: 28px;
+    font-size: 30px;
     color: lightgray;
     padding-left: 150px;
 
@@ -41,4 +41,15 @@ div {
 iframe#TIPI {
     height: 500px;
     width: 100%;
+}
+
+h2 {
+    font-size: 25px;
+    color: lightgray;
+}
+
+div {
+    background-color: rgb(247, 180, 55);
+    height: 50px;
+
 }
