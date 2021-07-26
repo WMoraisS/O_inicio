@@ -28,14 +28,17 @@ input#ncm {
 }
 
 input#btn {
-    height: 50px;
     width: 10ex;
     font-size: 22px;
+    
 }
 
 div {
+    background-color: rgb(247, 180, 55);
     color: white;
-    font-size: 20pt;
+    font-size: 18pt;
+    height: 50px;
+
 }
 
 iframe#TIPI {
@@ -48,8 +51,25 @@ h2 {
     color: lightgray;
 }
 
-div {
-    background-color: rgb(247, 180, 55);
-    height: 50px;
+div.listatec {
+    padding: 20pt;
+    padding-bottom: 100pt;
+    
+}
+
+table.lt {
+    color: rgba(42, 42, 51, 0.877);
+    border-style: solid;
+    padding-bottom: 10pt;
 
 }
+th {
+    border-style: double;
+
+}
+
+td {
+    font-size: 15pt;
+    text-align: center;
+}
+
