@@ -1,0 +1,318 @@
+/*
+ * Predefinindo formato de data para dd-mm-aaaa
+ */
+// $.fn.datebox.defaults.formatter = function (date) {
+//     var y = date.getFullYear();
+//     var m = date.getMonth() + 1;
+//     var d = date.getDate();
+//     return (d < 10 ? ('0' + d) : d) + '-' + (m < 10 ? ('0' + m) : m) + '-' + y; //e.g. 12-03-1966 (= 12 March 1966)
+// };
+
+$.fn.datebox.defaults.parser = function(s) {
+    if (!s)
+        return new Date();
+    var ss = s.split('-');
+    var d = parseInt(ss[0], 10);
+    var m = parseInt(ss[1], 10);
+    var y = parseInt(ss[2], 10);
+    if (!isNaN(y) && !isNaN(m) && !isNaN(d)) {
+        return new Date(y, m - 1, d);
+    } else {
+        return new Date();
+    }
+};
+
+/*
+ * Mostra barra de progresso
+ */
+function showBar(texto, time) {
+    $.messager.progress({
+        modal: true,
+        title: "Aguarde o processo finalizar.",
+        msg: texto,
+        closable: false,
+        interval: time
+    });
+}
+
+/*
+ * Fecha barra de progresso
+ */
+function closeBar() {
+    $.messager.progress('close');
+}
+
+/*
+ * Cria uma mensagem de erro no centro da tela
+ */
+function alertaCampo(texto) {
+    $.messager.show({
+        title: 'Erro',
+        modal: true,
+        msg: texto,
+        showType: 'show',
+        timeout: 1000,
+        style: {
+            right: '',
+            bottom: ''
+        }
+    });
+}
+
+/*
+ * Fecha uma janela de dialogo
+ */
+function closeDialog(dialog) {
+    $(dialog).dialog('close');
+}
+
+/*
+ * Mostra uma mensagem de sucesso
+ */
+function showMessage(texto) {
+    $.messager.show({
+        title: 'Sucesso',
+        msg: texto,
+        modal: true,
+        showType: 'show',
+        style: {
+            right: '',
+            bottom: ''
+        }
+    });
+}
+
+/*
+ * Funções para impressão de página 01
+ */
+
+
+
+/**
+ * Mascara para CNPJ
+ * 
+ *  @param {String} cnpj  CNPJ digitado 
+ * @author Jonathas Montenegro
+ * @since 2015-06-06
+ */
+function MascaraCNPJ(cnpj) {
+    if (mascaraInteiro(cnpj) === false) {
+        event.returnValue = false;
+    }
+    return formataCampo(cnpj, '00.000.000/0000-00', event);
+}
+
+/**
+ * Mascara para CEP
+ * 
+ *  @param {String} cep  CEP digitado 
+ * @author Jonathas Montenegro
+ * @since 2015-06-06
+ */
+function MascaraCep(cep) {
+    if (mascaraInteiro(cep) === false) {
+        event.returnValue = false;
+    }
+    return formataCampo(cep, '00.000-000', event);
+}
+
+
+/**
+ * Mascara para DATA
+ * 
+ *  @param {String} data  DATA digitado 
+ * @author Jonathas Montenegro
+ * @since 2015-06-06
+ */
+function MascaraData(data) {
+    if (mascaraInteiro(data) === false) {
+        event.returnValue = false;
+    }
+    return formataCampo(data, '00/00/0000', event);
+}
+
+/**
+ * Mascara para Código SAP
+ * 
+ *  @param {String} data  DATA digitado 
+ * @author Jonathas Montenegro
+ * @since 2015-06-06
+ */
+function MascaraCodSAP(data) {
+    if (mascaraInteiro(data) === false) {
+        event.returnValue = false;
+    }
+    return formataCampo(data, '000000000', event);
+}
+
+/**
+ * Mascara para TELEFONE
+ * 
+ *  @param {String} tel  TELEFONE digitado 
+ * @author Jonathas Montenegro
+ * @since 2015-06-06
+ */
+function MascaraTelefone(tel) {
+    if (mascaraInteiro(tel) === false) {
+        event.returnValue = false;
+    }
+    return formataCampo(tel, '(00) 0000-0000', event);
+}
+
+
+/**
+ * Mascara para CPF
+ * 
+ *  @param {String} cpf  CPF digitado 
+ * @author Jonathas Montenegro
+ * @since 2015-06-06
+ */
+function MascaraCPF(cpf) {
+    if (mascaraInteiro(cpf) === false) {
+        event.returnValue = false;
+    }
+    return formataCampo(cpf, '000.000.000-00', event);
+}
+
+/**
+ * Valida  se o formato data está correto.
+ * 
+ * @param {string} tel TELEFONE digitado
+ * @author Jonathas Montenegro
+ * @since 2015-06-07
+ */
+function ValidaTelefone(tel) {
+    exp = /\(\d{2}\)\ \d{4}\-\d{4}/
+    if (!exp.test(tel.value))
+        alert('Numero de Telefone Invalido!');
+}
+
+/**
+ * Valida  se o formato data está correto.
+ * 
+ * @param {string} cep CEP digitado
+ * @author Jonathas Montenegro
+ * @since 2015-06-07
+ */
+function ValidaCep(cep) {
+    exp = /\d{2}\.\d{3}\-\d{3}/
+    if (!exp.test(cep.value))
+        alert('Numero de Cep Invalido!');
+}
+
+/**
+ * Valida  se o formato data está correto.
+ * 
+ * @param {string} data data digitado
+ * @author Jonathas Montenegro
+ * @since 2015-06-07
+ */
+function ValidaData(data) {
+    exp = /\d{2}\/\d{2}\/\d{4}/
+    if (!exp.test(data.value))
+        alert('Data Invalida!');
+}
+
+/**
+ * Valida  se o formato do CPF está correto.
+ * 000.000.000-00
+ * 
+ * @param {string} Objcpf CPF digitado
+ * @author Jonathas Montenegro
+ * @since 2015-06-07
+ */
+function ValidarCPF(Objcpf) {
+    var cpf = Objcpf.value;
+    exp = /\.|\-/g;
+    cpf = cpf.toString().replace(exp, "");
+    var digitoDigitado = eval(cpf.charAt(9) + cpf.charAt(10));
+    var soma1 = 0,
+        soma2 = 0;
+    var vlr = 11;
+
+    for (i = 0; i < 9; i++) {
+        soma1 += eval(cpf.charAt(i) * (vlr - 1));
+        soma2 += eval(cpf.charAt(i) * vlr);
+        vlr--;
+    }
+    soma1 = (((soma1 * 10) % 11) === 10 ? 0 : ((soma1 * 10) % 11));
+    soma2 = (((soma2 + (2 * soma1)) * 10) % 11);
+
+    var digitoGerado = (soma1 * 10) + soma2;
+    if (digitoGerado !== digitoDigitado)
+        alert('CPF Invalido!');
+}
+
+/**
+ * Mascara para números inteiros
+ *  
+ * @author Jonathas Montenegro
+ * @since 2015-06-06
+ */
+function mascaraInteiro() {
+    if (event.keyCode < 48 || event.keyCode > 57) {
+        event.returnValue = false;
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Valida  se o formato do CNPJ está correto.
+ * 
+ * @param {string} ObjCnpj CNPJ digitado
+ * @author Jonathas Montenegro
+ * @since 2015-06-01
+ */
+function ValidarCNPJ(ObjCnpj) {
+    var cnpj = ObjCnpj.value;
+    var valida = new Array(6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2);
+    var dig1 = new Number;
+    var dig2 = new Number;
+
+    exp = /\.|\-|\//g;
+    cnpj = cnpj.toString().replace(exp, "");
+    var digito = new Number(eval(cnpj.charAt(12) + cnpj.charAt(13)));
+
+    for (i = 0; i < valida.length; i++) {
+        dig1 += (i > 0 ? (cnpj.charAt(i - 1) * valida[i]) : 0);
+        dig2 += cnpj.charAt(i) * valida[i];
+    }
+    dig1 = (((dig1 % 11) < 2) ? 0 : (11 - (dig1 % 11)));
+    dig2 = (((dig2 % 11) < 2) ? 0 : (11 - (dig2 % 11)));
+
+    if (((dig1 * 10) + dig2) !== digito)
+        alert('CNPJ Invalido!');
+
+}
+
+
+/**
+ * Remove acentos de caracteres e coloca letra maiuscula
+ * onkeyup="formatoPadrao(this)" 
+ * 
+ * @param  {String} objResp          [string que contem os acentos e minuscula]
+ * @return {String}                 [string sem acentos e maiuscula]
+ * @author Jonathas Montenegro
+ * @since 2015-06-09
+ */
+function formatoPadrao(objResp) {
+    var varString = new String(objResp.value);
+    var stringAcentos = new String('àâêôûãõáéíóúççüÀÂÊÔÛÃÕÁÉÍÓÚÇÇÜ"');
+    var stringSemAcento = new String('aaeouaoaeiouccuAAEOUAOAEIOUCCU ');
+    var i = new Number();
+    var j = new Number();
+    var cString = new String();
+    var varRes = '';
+    for (i = 0; i < varString.length; i++) {
+        cString = varString.substring(i, i + 1);
+        for (j = 0; j < stringAcentos.length; j++) {
+            if (stringAcentos.substring(j, j + 1) === cString) {
+                cString = stringSemAcento.substring(j, j + 1);
+            }
+        }
+        varRes += cString;
+    }
+    //objResp.value = varRes;
+    objResp.value = objResp.value.toUpperCase();
+}
