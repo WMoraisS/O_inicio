@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "version": "0.0.1",
+    "name": "Hello World",
+    "description": "Extensão Hello World - iBro",
+    "author": "Will",
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ],
+    "browser_action": {
+        "default_title": "Hello World",
+        "default_popup": "index.html",
+        "default_icon": "icon.png"
+        
+    }
+    
+}
