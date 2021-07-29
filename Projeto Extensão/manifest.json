@@ -10,6 +10,8 @@
             "js": ["content.js"]
         }
     ],
+
+
     "browser_action": {
         "default_title": "Hello World",
         "default_popup": "index.html",
@@ -18,3 +20,4 @@
     }
     
 }
+
