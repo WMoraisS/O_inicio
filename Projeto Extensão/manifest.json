@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "version": "0.0.1",
-    "name": "Hello World",
-    "description": "Extensão Hello World - iBro",
+    "name": "B.O.M",
+    "description": "Bibliography Of Material",
     "author": "Will",
     "content_scripts": [
         {
@@ -10,14 +10,13 @@
             "js": ["content.js"]
         }
     ],
-
+    
 
     "browser_action": {
-        "default_title": "Hello World",
+        "default_title": "B.O.M",
         "default_popup": "index.html",
-        "default_icon": "icon.png"
+        "default_icon": "icon/icon.png"
         
     }
     
 }
-
