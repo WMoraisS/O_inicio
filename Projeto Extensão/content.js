@@ -17,6 +17,7 @@ if (document.getElementsByClassName('col-sm-12')[89].getElementsByTagName('b').t
     
   
         //var local = document.getElementsByClassName("row")[234]
+        // class="modal-backdrop fade in"    //   class="modal-open"
         var local = document.getElementsByClassName('col-sm-12')[89]
         local.innerHTML = local.innerHTML + table
         
