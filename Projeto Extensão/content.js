@@ -13,7 +13,7 @@ for (var i = 0; i < x.length; i++){
     table = table + html
 }
 
-if (document.querySelector(".modal-title").text = "Editar solicitação para cadastro de lista técnica (composição)") {
+if (document.getElementsByClassName('col-sm-12')[89].getElementsByTagName('b').text = "Lista técnica (Composição):") {
     
   
         //var local = document.getElementsByClassName("row")[234]
