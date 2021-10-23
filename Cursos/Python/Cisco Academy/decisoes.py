@@ -52,3 +52,22 @@
 ### EXTRA
 ## Função max() - Retorna o maior valor entre os argumentos. Exemplo de sintaxe: max(arg1, arg2, arg3)
 ## Função min() - Retorna o menor valor entre os argumentos. Exemplo de sintaxe: min(arg1, arg2, arg3)
+# my_old_list = [8,10,6,2,4]
+# my_list = [8,10,6,2,4]
+# count = True
+# while count == True:
+#     count = False
+#     for i in range(len(my_list) - 1):
+#         if my_list[i] > my_list[i + 1]:
+#             my_list[i], my_list[i + 1] = my_list[i +1], my_list[i]
+#             print(my_list)
+#             count = True
+    
+# print(my_list)
+
+# my_old_list.sort() # Ordena a lista em ordem Crescente
+# print("Usando o .sort", my_old_list)
+# my_old_list.reverse() # Ordena a lista em ordem Decrescente
+# print("Usando o .reverse", my_old_list)
+
+#3.6.1.1
