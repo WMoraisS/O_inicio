@@ -1,0 +1,11 @@
+{
+    "manifest_version":2,
+    "name": "Import Bank Files",
+    "version": "1.0",
+    "description": "Importa os arquivos bancários para carregar no sistema.",
+    "browser_action":{
+        "default_popup":"index.html"
+    }
+    
+    
+}
