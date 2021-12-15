@@ -28,8 +28,13 @@
 #     print("Queue error")
 
 
-class A:
-    def __init__(self):
-        pass
-a = A(1)
-print(hasattr(a,'A'))
+# class A:
+#     def __init__(self):
+#         pass
+# a = A(1)
+# print(hasattr(a,'A'))
+
+import easygui
+
+dataIni = easygui.enterbox('Data Inicial: ')
+print(dataIni)
